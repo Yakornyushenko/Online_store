@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {fetchAllPhones} from "../../actions";
+import {fetchAllPhones, loadAllPhones} from "../../actions";
 import {getPhones} from "../../selectors";
 import {Link} from "react-router-dom";
+import Layout from "../layout";
 
 class Phones extends Component {
     componentDidMount() {
@@ -39,13 +40,24 @@ class Phones extends Component {
         )
     }
     render() {
-        const {phones} = this.props
+        const {phones, loadAllPhones} = this.props
         return (
-            <div className='books row'>
-                {phones.map((phone, i) => {
-                    return this.renderPhone(phone, i)
-                })}
-            </div>
+            <Layout>
+                <div className='books row'>
+                    {phones.map((phone, i) => {return this.renderPhone(phone, i)})}
+                </div>
+                <div className='row'>
+                    <div className='col-md-12'>
+                        <button
+                        onClick={loadAllPhones}
+                        className='pull-right btn btn-primary'
+                        >
+                            Load More
+                        </button>
+                    </div>
+                </div>
+            </Layout>
+
         )
     }
 }
@@ -53,6 +65,7 @@ const mapStateToProps = state => ({
     phones: getPhones(state)
 })
 const mapDispatchToProps = {
-    fetchAllPhones
+    fetchAllPhones,
+    loadAllPhones
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);
