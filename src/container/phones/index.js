@@ -40,6 +40,7 @@ class Phones extends Component {
         )
     }
     render() {
+        console.log('state', this.props)
         const {phones, loadAllPhones} = this.props
         return (
             <Layout>
