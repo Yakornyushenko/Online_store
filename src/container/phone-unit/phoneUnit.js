@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {fetchAllPhones, fetchPhone} from "../../actions";
+import {addPhoneToBasket, fetchAllPhones, fetchPhone} from "../../actions";
 import {getPhoneById} from "../../selectors";
+import {Link} from "react-router-dom";
+import BasketCart from "../../components/basketCart";
 
 class PhoneUnit extends Component {
     componentDidMount() {
@@ -19,7 +21,6 @@ class PhoneUnit extends Component {
         delete fields.image;
         delete fields.description;
         delete fields.price;
-        console.log('fields', fields);
         const phoneFields = Object.entries(fields)
 
         return phoneFields.map(([key, value]) => (
@@ -59,8 +60,26 @@ class PhoneUnit extends Component {
     }
 
     renderSidebar() {
+        const {phone, addPhoneToBasket} = this.props
         return (
-            <div>Sidebar</div>
+            <div>
+                <p className='lead'> Quick shop</p>
+                <BasketCart/>
+                <div className='form-group'>
+                    <h3>{phone.name}</h3>
+                    <h4>Price ${phone.price}</h4>
+                </div>
+                <Link to='/' className='btn btn-info btn-block'>
+                    Back to store
+                </Link>
+                <button
+                    className='btn btn-success btn-block'
+                    type='button'
+                    onClick={() => addPhoneToBasket(phone.id)}
+                >
+                    Add to card
+                </button>
+            </div>
         )
     }
 
@@ -90,7 +109,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     fetchPhone,
-    fetchAllPhones
+    fetchAllPhones,
+    addPhoneToBasket
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (PhoneUnit)

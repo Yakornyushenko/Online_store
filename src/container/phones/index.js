@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {fetchAllPhones, loadAllPhones} from "../../actions";
+import {fetchAllPhones, loadAllPhones, addPhoneToBasket} from "../../actions";
 import {getPhones} from "../../selectors";
 import {Link} from "react-router-dom";
 import Layout from "../layout";
@@ -12,6 +12,7 @@ class Phones extends Component {
     }
     renderPhone (phone, i) {
         const shortDescription = `${phone.description.slice(60)}...`;
+        const {addPhoneToBasket} = this.props;
         return (
         <div className='col-md-4 col-lg-4, col-sm-4 book-list' key={i}>
             <div className='thumbnail'>
@@ -25,7 +26,8 @@ class Phones extends Component {
                     </h4>
                     <p>{shortDescription}</p>
                     <p className='itemButton'>
-                        <button className='btn btn-primary'>
+                        <button className='btn btn-primary'
+                        onClick={() => addPhoneToBasket(phone.id)}>
                             Buy now!
                         </button>
                         <Link
@@ -39,6 +41,7 @@ class Phones extends Component {
         </div>
         )
     }
+
     render() {
         console.log('state', this.props)
         const {phones, loadAllPhones} = this.props
@@ -67,6 +70,7 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = {
     fetchAllPhones,
-    loadAllPhones
+    loadAllPhones,
+    addPhoneToBasket
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

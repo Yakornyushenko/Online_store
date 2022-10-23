@@ -7,3 +7,13 @@ export const getPhones = state => {
 }
 
 export const getRenderPhonesLength = state => state.phonesPage.ids.length
+
+export const getTotalBasketCount = state => state.basket.length
+
+export const getTotalPrice = state => {
+    return R.compose(
+        R.sum,
+        R.pluck('price'),
+        R.map(id => getPhoneById(state, id))
+    )(state.basket)
+}

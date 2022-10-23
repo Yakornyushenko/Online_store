@@ -9,7 +9,9 @@ import {
 
     FETCH_PHONE_START,
     FETCH_PHONE_SUCCESS,
-    FETCH_PHONE_FAILURE
+    FETCH_PHONE_FAILURE,
+
+    ADD_PHONE_TO_BASKET
 } from './actionsTypes';
 import {fetchPhones, loadMorePhones, fetchPhoneById} from '../api/index';
 import {getRenderPhonesLength} from "../selectors";
@@ -31,6 +33,13 @@ export const fetchAllPhones = () => async dispatch => {
             error: true
         })
     }
+}
+
+export const addPhoneToBasket = id => dispatch => {
+dispatch({
+    type: ADD_PHONE_TO_BASKET,
+    payload: id
+})
 }
 
 export const loadAllPhones = () => async (dispatch, getState) => {
