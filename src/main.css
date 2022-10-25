@@ -17,7 +17,16 @@
     background: url(/public/images/preloader.gif) no-repeat 50% 50%;
     margin: -32px 0 0 -32px;
 }
-
+.glyphicon-clean-button {
+    display: flex;
+    padding: 0 56px 0 60px;
+    justify-content: space-evenly;
+}
+.glyphicon-shopping {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6px 45px 6px 45px;
+}
 .view-container{
     margin-top:20px;
 }
@@ -44,6 +53,7 @@
 }
 .book-list .thumbnail img{
     width:100%;
+    max-height: 260px;
 }
 .book-list figure::before {
     position: absolute;
@@ -357,7 +367,6 @@ nav.navbar-inverse .navbar-nav>li>a:hover,nav.navbar-inverse .navbar-nav>li>a.Ac
 .form-group .help-block {
     display: none;
 }
-
 .form-group.has-error .help-block {
     display: block;
 }

@@ -59,7 +59,7 @@ const basket = ({
         <div>
             <Link
             to='/'
-            className='btn btn-info'
+            className='btn btn-info glyphicon-shopping'
             >
                 <span className='glyphicon glyphicon-info-sign'></span>
                 <span>Continue shopping</span>
@@ -70,8 +70,8 @@ const basket = ({
                     onClick={cleanBasket}
                     className='btn btn-danger'
                     >
-                        <span className='glyphicon glyphicon-trash'>
-                            Clean cart
+                        <span className='glyphicon glyphicon-trash glyphicon-clean-button'>
+                            Clean
                         </span>
                     </button>
                 </div>
