@@ -9,7 +9,12 @@ import {
 
     FETCH_PHONE_START,
     FETCH_PHONE_SUCCESS,
-    FETCH_PHONE_FAILURE
+    FETCH_PHONE_FAILURE,
+
+    ADD_PHONE_TO_BASKET,
+    REMOVE_PHONE_FROM_BASKET,
+
+    CLEAN_BASKET
 } from './actionsTypes';
 import {fetchPhones, loadMorePhones, fetchPhoneById} from '../api/index';
 import {getRenderPhonesLength} from "../selectors";
@@ -31,6 +36,13 @@ export const fetchAllPhones = () => async dispatch => {
             error: true
         })
     }
+}
+
+export const addPhoneToBasket = id => dispatch => {
+dispatch({
+    type: ADD_PHONE_TO_BASKET,
+    payload: id
+})
 }
 
 export const loadAllPhones = () => async (dispatch, getState) => {
@@ -70,4 +82,17 @@ export const fetchPhone = id => async dispatch => {
                 error: true
             })
     }
+}
+
+export const removePhoneFromBasket = id => dispatch => {
+    dispatch({
+        type: REMOVE_PHONE_FROM_BASKET,
+        payload: id
+    })
+}
+
+export const cleanBasket = () => dispatch => {
+    dispatch({
+        type: CLEAN_BASKET
+    })
 }
