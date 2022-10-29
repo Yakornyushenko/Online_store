@@ -1,4 +1,4 @@
-import './main.css';
+import './styles/main.css';
 import React from "react";
 import * as ReactDOM from "react-dom";
 import {createStore, applyMiddleware} from 'redux';

@@ -4,6 +4,7 @@ import {getTotalPrice, getBasketPhonesWithCount} from "../../selectors";
 import trash from './trash.png'
 import {removePhoneFromBasket, cleanBasket} from "../../actions";
 import {Link} from "react-router-dom";
+import GlobalLayout from "../layout/globalLayout/globalLayout";
 const basket = ({
     phones,
     totalPrice,
@@ -80,6 +81,7 @@ const basket = ({
     )
 
         return (
+            <GlobalLayout>
             <div className='view-container'>
                 <div className='container'>
                     <div className='row'>
@@ -90,9 +92,9 @@ const basket = ({
                             {renderContent()}
                         </div>
                     </div>
-
                 </div>
             </div>
+            </GlobalLayout>
         )
 }
 

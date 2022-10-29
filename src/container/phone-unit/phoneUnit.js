@@ -5,6 +5,7 @@ import {addPhoneToBasket, fetchAllPhones, fetchPhone} from "../../actions";
 import {getPhoneById} from "../../selectors";
 import {Link} from "react-router-dom";
 import BasketCart from "../../components/basketCart";
+import GlobalLayout from "../layout/globalLayout/globalLayout";
 
 class PhoneUnit extends Component {
     componentDidMount() {
@@ -64,7 +65,6 @@ class PhoneUnit extends Component {
         return (
             <div>
                 <p className='lead'> Quick shop</p>
-                <BasketCart/>
                 <div className='form-group'>
                     <h3>{phone.name}</h3>
                     <h4>Price ${phone.price}</h4>
@@ -86,7 +86,8 @@ class PhoneUnit extends Component {
     render() {
         const {phone} = this.props
         console.log('phone', this.props.phone)
-        return <div className='view-container'>
+        return <GlobalLayout>
+        <div className='view-container'>
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-3'>
@@ -98,6 +99,7 @@ class PhoneUnit extends Component {
                 </div>
             </div>
         </div>
+        </GlobalLayout>
     }
 }
 

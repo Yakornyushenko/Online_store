@@ -1,3 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+button {
+    outline: none !important;
+}
+
 #page-preloader {
     position: fixed;
     left: 0;
@@ -16,6 +30,9 @@
     top: 50%;
     background: url(/public/images/preloader.gif) no-repeat 50% 50%;
     margin: -32px 0 0 -32px;
+}
+.btn-load {
+    padding: 11px 20px;
 }
 .glyphicon-clean-button {
     display: flex;
@@ -446,10 +463,6 @@ nav.navbar-inverse .navbar-nav>li>a:hover,nav.navbar-inverse .navbar-nav>li>a.Ac
     padding: 9px;
     color: #333;
 }
-footer {
-    margin: 50px 0;
-}
-
 
 @media only screen and (max-width : 1200px){
 }
@@ -547,4 +560,90 @@ footer {
     -o-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
+}
+
+.content {
+    min-height: 100%;
+}
+
+/*header*/
+
+.header-top {
+    display: grid;
+    grid-template-columns: 18% 11% 52% 15% 1fr;
+    grid-gap: 10px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.header-logo-img {
+    height: 80px;
+}
+.header-phone {
+    display: flex;
+    align-items: center;
+}
+.header-number{
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.header-info {
+    display: flex;
+    justify-content: space-evenly;
+}
+.header-bottom-link {
+    font-size: 18px;
+    font-family: 'Playfair Display';
+    transition-duration: .2s;
+}
+.header-phone-img {
+    cursor: pointer;
+}
+
+ /*footer*/
+
+.footer {
+    background-color: aliceblue;
+}
+.footer-description {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+.footer-description p {
+    cursor: pointer;
+    font-size: 16px;
+}
+.footer-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.footer-social-networks {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.footer-social-unit {
+    padding-right: 20px;
+}
+.footer-descTitle {
+    font-size: 22px;
+    font-family: 'Playfair Display';
+    padding-bottom: 10px;
+}
+.footer-rights {
+    font-weight: bold;
+    font-size: 12px;
+    font-style: italic;
+}
+.cart-text {
+    font-weight: 500;
+    font-size: 16px;
+}
+.cart {
+    width: 180px;
 }
