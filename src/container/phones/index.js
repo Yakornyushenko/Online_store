@@ -4,7 +4,8 @@ import {connect} from "react-redux";
 import {fetchAllPhones, loadAllPhones, addPhoneToBasket} from "../../actions";
 import {getPhones} from "../../selectors";
 import {Link} from "react-router-dom";
-import Layout from "../layout";
+import Layout from "../layout/layout";
+import GlobalLayout from "../layout/globalLayout/globalLayout";
 
 class Phones extends Component {
     componentDidMount() {
@@ -20,7 +21,7 @@ class Phones extends Component {
                 <div className='caption'>
                     <h4 className='pull-right'>${phone.price}</h4>
                     <h4>
-                        <Link to={`/phones/${phone.id}`}>
+                        <Link to={`/phone/${phone.id}`}>
                             {phone.name}
                         </Link>
                     </h4>
@@ -45,21 +46,24 @@ class Phones extends Component {
     render() {
         const {phones, loadAllPhones} = this.props
         return (
-            <Layout>
-                <div className='books row'>
-                    {phones.map((phone, i) => {return this.renderPhone(phone, i)})}
-                </div>
-                <div className='row'>
-                    <div className='col-md-12'>
-                        <button
-                        onClick={loadAllPhones}
-                        className='pull-right btn btn-primary'
-                        >
-                            Load More
-                        </button>
+            <GlobalLayout>
+                <Layout>
+                    <div className='books row'>
+                        {phones.map((phone, i) => {return this.renderPhone(phone, i)})}
                     </div>
-                </div>
-            </Layout>
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <button
+                                onClick={loadAllPhones}
+                                className='pull-right btn btn-primary btn-load'
+                            >
+                                Load More
+                            </button>
+                        </div>
+                    </div>
+                </Layout>
+            </GlobalLayout>
+
 
         )
     }

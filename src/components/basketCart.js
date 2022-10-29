@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {getTotalBasketCount, getTotalPrice} from "../selectors";
+import {getTotalPrice} from "../selectors";
 
-const BasketCart = ({totalBasketCount, totalPrice}) => {
+const BasketCart = ({totalPrice}) => {
     return (
         <div className='cart'>
             <div className='dropdown'>
@@ -13,7 +13,7 @@ const BasketCart = ({totalBasketCount, totalPrice}) => {
                     className='btn btn-inverse btn-block btn-lg'
                 >
                     <i className='fa fa-fa-shopping-cart'></i>
-                    <span>{totalBasketCount} item(s) - ${totalPrice}</span>
+                    <span className='cart-text'>basket: ${totalPrice}</span>
                 </Link>
             </div>
         </div>
@@ -22,7 +22,6 @@ const BasketCart = ({totalBasketCount, totalPrice}) => {
 
 const mapStateToProps = state => {
     return {
-        totalBasketCount: getTotalBasketCount(state),
         totalPrice: getTotalPrice(state)
     }
 }
