@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 import {getTotalPrice, getBasketPhonesWithCount} from "../../selectors";
-import trash from './trash.png'
+import trash from './trash.png';
+import emptyCart from './emptyCart.png';
 import {removePhoneFromBasket, cleanBasket} from "../../actions";
 import {Link} from "react-router-dom";
 import GlobalLayout from "../layout/globalLayout/globalLayout";
@@ -13,7 +14,12 @@ const basket = ({
 }) => {
     const renderContent = () => (
         <div>
-            {phones.length <= 0 ? <div>Your shopping cart is empty</div> : null}
+            {phones.length <= 0 ?
+                <div className='empty-cart-info'>
+                    <h3 className='empty-cart-title'>Your shopping cart is empty</h3>
+                    <img className='empty-cart-img' src={emptyCart} alt=''/>
+                </div>
+                 : null}
             <div className='table-responsive'>
                 <table className='table-bordered table-striped table-condensed cf'>
                     <tbody>

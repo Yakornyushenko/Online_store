@@ -3,12 +3,20 @@ import * as R from "ramda";
 export const getPhoneById = (state, id) => state.phones[id]
 
 export const getPhones = state => {
-    return R.map(id => getPhoneById(state, id), state.phonesPage.ids)
+    const applySearch = item => R.includes(
+         state.phonesPage.search,
+         R.prop('name', item)
+     )
+    return state.phonesPage.search ? R.compose(
+        R.filter(applySearch),
+        R.map(id => getPhoneById(state, id))
+    )(state.phonesPage.ids)
+        : R.map(id => getPhoneById(state, id), state.phonesPage.ids)
 }
 
 export const getRenderPhonesLength = state => state.phonesPage.ids.length
 
-export const getTotalBasketCount = state => state.basket.length
+// export const getTotalBasketCount = state => state.basket.length
 
 export const getTotalPrice = state => {
     return R.compose(

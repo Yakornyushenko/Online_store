@@ -31,25 +31,49 @@ button {
     background: url(/public/images/preloader.gif) no-repeat 50% 50%;
     margin: -32px 0 0 -32px;
 }
+
+.search-form {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.wrap-search-btn {
+    position: absolute;
+}
+.search-input {
+    margin-left: 35px;
+    cursor: pointer !important;
+}
+.search-btn {
+    border-color: #66afe9;
+    cursor: pointer !important;
+    background: aliceblue !important;
+}
+
 .btn-load {
     padding: 11px 20px;
 }
+
 .glyphicon-clean-button {
     display: flex;
     padding: 0 56px 0 60px;
     justify-content: space-evenly;
 }
+
 .glyphicon-shopping {
     display: flex;
     justify-content: space-evenly;
     padding: 6px 45px 6px 45px;
 }
+
 .view-container{
     margin-top:20px;
 }
+
 .cart-order{
     margin:0 auto;
 }
+
 .cart-order input{
     text-align:right;
 }
@@ -62,8 +86,15 @@ button {
 .caption{
     min-height:165px;
 }
-
-
+.empty-cart-img {
+    max-height: 227px
+}
+.empty-cart-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
 .book-list figure {
     position: relative;
@@ -123,6 +154,9 @@ button {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+}
+.reset-search-btn {
+    margin-top: 20px;
 }
 .blosd button{
     cursor: default;
@@ -232,6 +266,8 @@ button {
     vertical-align: top;
 }
 .well{
+    min-height: 200px !important;
+    background-color: #f9f9f9 !important;
     border-radius: 0 0 4px 4px;
 }
 .open>.dropdown-menu{
