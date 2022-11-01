@@ -13,7 +13,7 @@ const BasketCart = ({totalPrice}) => {
                     className='btn btn-inverse btn-block btn-lg'
                 >
                     <i className='fa fa-fa-shopping-cart'></i>
-                    <span className='cart-text'>basket: ${totalPrice}</span>
+                    <span className='cart-text'>Basket: ${totalPrice}</span>
                 </Link>
             </div>
         </div>

@@ -4,8 +4,8 @@ import {connect} from "react-redux";
 import {addPhoneToBasket, fetchAllPhones, fetchPhone} from "../../actions";
 import {getPhoneById} from "../../selectors";
 import {Link} from "react-router-dom";
-import BasketCart from "../../components/basketCart";
 import GlobalLayout from "../layout/globalLayout/globalLayout";
+import Sidebar from "../../components/sidebar";
 
 class PhoneUnit extends Component {
     componentDidMount() {

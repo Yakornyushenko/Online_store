@@ -1,8 +1,15 @@
 import phones from './mockPhone';
+import categories from './mockCategories';
 
 export const fetchPhones = async () => {
     return new Promise((resolve) => {
         resolve(phones)
+    })
+};
+
+export const fetchCategoriesApi = async () => {
+    return new Promise((resolve) => {
+        resolve(categories)
     })
 };
 

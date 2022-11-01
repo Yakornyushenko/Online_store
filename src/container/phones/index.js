@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {fetchAllPhones, loadAllPhones, addPhoneToBasket} from "../../actions";
+import {fetchAllPhones, loadAllPhones, addPhoneToBasket, fetchCategories} from "../../actions";
 import {getPhones} from "../../selectors";
 import {Link} from "react-router-dom";
 import Layout from "../layout/layout";
@@ -10,6 +10,7 @@ import GlobalLayout from "../layout/globalLayout/globalLayout";
 class Phones extends Component {
     componentDidMount() {
         this.props.fetchAllPhones()
+        this.props.fetchCategories()
     }
     renderPhone (phone, i) {
         const shortDescription = `${phone.description.slice(60)}...`;
@@ -45,6 +46,8 @@ class Phones extends Component {
 
     render() {
         const {phones, loadAllPhones} = this.props
+        console.log('this.props', this.props)
+        console.log('phones', phones)
         return (
             <GlobalLayout>
                 <Layout>
@@ -74,6 +77,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     fetchAllPhones,
     loadAllPhones,
-    addPhoneToBasket
+    addPhoneToBasket,
+    fetchCategories
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

@@ -14,9 +14,17 @@ import {
     ADD_PHONE_TO_BASKET,
     REMOVE_PHONE_FROM_BASKET,
 
-    CLEAN_BASKET
+    CLEAN_BASKET,
+
+    FETCH_CATEGORIES_START,
+    FETCH_CATEGORIES_SUCCESS,
+    FETCH_CATEGORIES_FAILURE,
+
+    SEARCH_PHONE,
+
+    RESET_SEARCH_PHONE
 } from './actionsTypes';
-import {fetchPhones, loadMorePhones, fetchPhoneById} from '../api/index';
+import {fetchPhones, loadMorePhones, fetchPhoneById, fetchCategoriesApi} from '../api/index';
 import {getRenderPhonesLength} from "../selectors";
 
 export const fetchAllPhones = () => async dispatch => {
@@ -43,6 +51,19 @@ dispatch({
     type: ADD_PHONE_TO_BASKET,
     payload: id
 })
+}
+
+export const searchPhone = text => dispatch => {
+    dispatch({
+        type: SEARCH_PHONE,
+        payload: text
+    })
+}
+export const resetSearchPhone = text => dispatch => {
+    dispatch({
+        type: RESET_SEARCH_PHONE,
+        payload: text
+    })
 }
 
 export const loadAllPhones = () => async (dispatch, getState) => {
@@ -95,4 +116,23 @@ export const cleanBasket = () => dispatch => {
     dispatch({
         type: CLEAN_BASKET
     })
+}
+
+export const fetchCategories = () => async dispatch => {
+    dispatch({
+        type: FETCH_CATEGORIES_START,
+    })
+    try {
+        const categories = await fetchCategoriesApi()
+        dispatch({
+            type: FETCH_CATEGORIES_SUCCESS,
+            payload: categories
+        })
+    } catch (err) {
+        dispatch({
+            type: FETCH_CATEGORIES_FAILURE,
+            payload: err,
+            error: true
+        })
+    }
 }

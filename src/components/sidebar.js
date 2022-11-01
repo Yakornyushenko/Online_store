@@ -1,8 +1,9 @@
 import React from "react";
+import Search from "./search";
 
 const Sidebar = () => {
     return (
-        <div></div>
+        <Search></Search>
     )
 }
 
